@@ -1,0 +1,19 @@
+{
+  "name": "supos-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "supos-cli": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.17.1",
+    "git-clone": "^0.1.0",
+    "shelljs": "^0.8.2"
+  }
+}
