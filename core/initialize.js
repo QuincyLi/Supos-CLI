@@ -6,10 +6,10 @@ var copyTemplate = core.copyTemplate;
 // 创建server文件夹
 function createServer() {
   mkdir('./Supos-Cli/server', function () {
-    mkdir('./Supos-Cli/server/bin', function(){
+    mkdir('./Supos-Cli/server/bin', function () {
       copyTemplate('server/bin/main.js', './Supos-Cli/server/bin/main.js');
     });
-    mkdir('./Supos-Cli/server/routes', function(){
+    mkdir('./Supos-Cli/server/routes', function () {
       copyTemplate('server/routes/index.js', './Supos-Cli/server/routes/index.js');
     });
     copyTemplate('server/app.js', './Supos-Cli/server/app.js');
@@ -33,13 +33,17 @@ function createWebpackConfig() {
 
 // 初始化项目
 function initProject() {
-  mkdir('./Supos-Cli', function () {
-    createServer();
-    createSource();
-    createWebpackConfig();
-    copyTemplate('.babelrc', './Supos-Cli/.babelrc');
-    copyTemplate('package.json', './Supos-Cli/package.json');
-  });
+  try {
+    mkdir('./Supos-Cli', function () {
+      createServer();
+      createSource();
+      createWebpackConfig();
+      copyTemplate('.babelrc', './Supos-Cli/.babelrc');
+      copyTemplate('package.json', './Supos-Cli/package.json');
+    });
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 exports.default = {
