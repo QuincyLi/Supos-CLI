@@ -3,7 +3,11 @@ var path = require('path');
 
 function copyTemplate(from, to) {
   var fromPath = path.join(__dirname, '..', 'templates', from);
-  write(to, fs.readFileSync(fromPath, 'utf-8'));
+  if (fromPath.lastIndexOf('png') > 0) {
+    write(to, fs.readFileSync(fromPath));
+  } else {
+    write(to, fs.readFileSync(fromPath, 'utf-8'));
+  }
 }
 
 function write(path, str, mode) {
